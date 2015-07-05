@@ -1,0 +1,1 @@
+This is yet another TODO app implemented in angularjs.
