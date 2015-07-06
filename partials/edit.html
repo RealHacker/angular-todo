@@ -1,18 +1,26 @@
-<form>
+<form name='editor'>
 	<fieldset>
-	<label>Title:</label>
-	<input type='text' ng-model="vm.title" required></input>
+		<label>Title:</label><br>
+		<input name="title" type='text' ng-model="vm.title" maxlength="12" minlength="3" required></input>
+		<p class='alert-error' ng-show="editor.title.$error.maxlength">The title is too long.</p>
+		<p class='alert-error' ng-show="editor.title.$error.minlength">The title is too short.</p>
+		<p class='alert-error' ng-show="editor.title.$error.required">The title is blank.</p>
 	</fieldset>
 	<fieldset>
-	<label>Content:</label>
-	<textarea ng-model="vm.description"></textarea>
+		<label>Content:</label><br>
+		<textarea name="description" ng-model="vm.description" required></textarea>
+		<p class="alert alert-error" ng-show="editor.description.$error.required">Description is required.</p>
 	</fieldset>
 	<fieldset>
-	<label>Time:</label>
-	<input type='text' ng-model="vm.time"></input>
+		<label>Time:</label><br>
+		<input name='time' type='time' ng-model="vm.time" min="08:00:00" max="21:00:00"></input>
+		<p class="alert alert-error" ng-show="editor.time.$error.min">Day starts at 8:00</p>
+		<p class="alert alert-error" ng-show="editor.time.$error.max">Day ends at 21:00</p>
 	</fieldset>
 
-	<h3 ng-if="vm.title&&vm.description">You plan to add a TODO: {{vm.title}}: {{vm.description}} at {{vm.time}}</h3>
+	<div class='well well-small' ng-if="vm.title&&vm.description">
+		<h4>You plan to add a TODO: {{vm.title}}: {{vm.description}} at {{vm.time}}</h4>
+	</div>
 	<div class='row'>
 		<a class='btn span6' href="#/">CANCEL</a>
 		<button type='submit' ng-click="vm.submitItem()" class='span6'>SUBMIT</button>

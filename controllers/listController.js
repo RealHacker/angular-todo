@@ -4,9 +4,21 @@ listController.$inject = ["dataService", "$location"]
 
 function listController(dataService, $location){
 	console.log("In list controller")
-	this.list = dataService.getData()
-	this.removeItem = function(item){
-		this.list.splice(item, 1)
+	var vm = this;
+
+	vm.list = dataService.getData();
+	vm.showConfirm = false;
+    
+	this.removeItem = function(){
+		vm.showConfirm = false;
+		vm.list.splice(vm.currentIndex, 1)
+	}
+	this.cancelConfirm = function(){
+		vm.showConfirm = false;
+	}
+	this.revealConfirm = function(idx){
+		vm.currentIndex = idx;
+		vm.showConfirm = true;
 	}
 	this.gotoEditor = function(){
 		$location.path("/edit");

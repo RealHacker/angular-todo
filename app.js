@@ -3,6 +3,7 @@ angular.module("todo", ["ngRoute"]);
 angular.module("todo").config(configureRoutes);
 
 configureRoutes.$inject = ["$routeProvider"]
+
 function configureRoutes($routeProvider){
 	$routeProvider.
 		when("/", {
@@ -18,5 +19,5 @@ function configureRoutes($routeProvider){
 		otherwise({
 			redirectTo: "/"
 		});
-	console.log("In controller")
+	console.log("In configureRoutes")
 }

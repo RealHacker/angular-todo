@@ -1,9 +1,14 @@
 <button class='align-right' ng-click="vm.gotoEditor()">ADD TODO</button>
-<table class="table-striped">
+<table class="table table-striped">
 	<tr ng-repeat="item in vm.list" style="table-style:fixed">
 		<td style="width:20%">{{item.title}}</td>
-		<td style="width:20%">{{item.description}}</td>
+		<td style="width:30%">{{item.description}}</td>
 		<td style="width:30%">{{item.time}}</td>
-		<td style="width:30%"><button class='btn btn-mini' ng-click="vm.removeItem($index)">DELETE</button></td>
+		<td style="width:20%">
+			<button class='btn btn-mini' ng-click="vm.revealConfirm($index)">DELETE</button>
+		</td>
 	</tr>
 </table>
+<my-confirm ng-show="vm.showConfirm" confirm="vm.removeItem()" cancel="vm.cancelConfirm()">
+	<p>Are you sure you want to delete {{vm.currentIndex}}?</p>
+</my-confirm>
