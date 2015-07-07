@@ -6,12 +6,12 @@ function dataService(){
 		{
 			title: "buy some milk",
 			description: "Need to drink milk to stay strong",
-			time: "9:00"
+			time: new Date("1990-01-01 09:00")
 		},
 		{
 			title: "attend to the plant",
 			description: "Poor thing needs water",
-			time: "10:00"
+			time: new Date("1990-01-01 18:00")
 		},
 	];
 	this.getData = function(){

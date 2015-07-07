@@ -13,7 +13,7 @@
 	</fieldset>
 	<fieldset>
 		<label>Time:</label><br>
-		<input name='time' type='time' ng-model="vm.time" min="08:00:00" max="21:00:00"></input>
+		<input name='time' type='time' ng-model="vm.time" min="08:00" max="21:00"></input>
 		<p class="alert alert-error" ng-show="editor.time.$error.min">Day starts at 8:00</p>
 		<p class="alert alert-error" ng-show="editor.time.$error.max">Day ends at 21:00</p>
 	</fieldset>
