@@ -1,4 +1,4 @@
-angular.module("todo", ["ngRoute"]);
+angular.module("todo", ["ngRoute", "ngAnimate"]);
 
 angular.module("todo").config(configureRoutes);
 

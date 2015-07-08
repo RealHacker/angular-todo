@@ -1,6 +1,6 @@
 <button class='align-right' ng-click="vm.gotoEditor()">ADD TODO</button>
 <table class="table table-striped">
-	<tr ng-repeat="item in vm.list" style="table-style:fixed">
+	<tr ng-repeat="item in vm.list" class="repeated-item" style="table-style:fixed" >
 		<td style="width:20%">{{item.title}}</td>
 		<td style="width:30%">{{item.description}}</td>
 		<td style="width:30%">{{item.time | date:'HH:mm' |ampm}}</td>
